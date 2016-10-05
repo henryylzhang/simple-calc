@@ -8,5 +8,24 @@
 
 import Foundation
 
-print("Hello, World!")
+print("Enter an expression separated by returns: \n")
+var response = readLine(strippingNewline: true)!
+let num1 = UInt.init(response)!
+response = readLine(strippingNewline: true)!
+var operate = ""
+switch operate {
+    case "+":
+        operate = "+"
+    case "-":
+        operate = "-"
+    case "*":
+        operate = "*"
+    case "/":
+        operate = "/"
+    case "%":
+        operate = "%"
+    default:
+        print ("Please enter a valid operator")
+}
 
+//if response = readLine()
