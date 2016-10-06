@@ -11,30 +11,39 @@ import Foundation
 print("Enter an expression separated by returns: \n")
 var response = readLine(strippingNewline: true)!
 if response.contains("fact") {
-    let container: [String] = response.characters.split{$0 == " "}.map(String.init)
+    let set: [String] = response.characters.split{$0 == " "}.map(String.init)
 } else if response.contains("avg") {
-    
+    let stringSet: [String] = response.characters.split{$0 == " "}.map(String.init)
+    var set = [Int]()
+    for element in set {
+        if Int(element) != nil {
+           set.append(Int(element))
+        }
+    }
+    //print(avg(set))
 } else if response.contains("count") {
-    
+    let set: [String] = response.characters.split{$0 == " "}.map(String.init)
+    let count = set.count - 1
+    print("Result: " + String(count))
 } else {
-//let num1 = UInt.init(response)!
-//response = readLine(strippingNewline: true)!
-//if response == "+" {
-//    let ans = num1 + UInt.init(readLine(strippingNewline: true)!)!
-//    print("Result: \(ans)")
-//} else if response == "-" {
-//    let ans = num1 - UInt.init(readLine(strippingNewline: true)!)!
-//    print("Result: \(ans)")
-//} else if response == "*" {
-//    let ans = num1 * UInt.init(readLine(strippingNewline: true)!)!
-//    print("Result: \(ans)")
-//} else if response == "/" {
-//    let ans = num1 * UInt.init(readLine(strippingNewline: true)!)!
-//    print("Result: \(ans)")
-//} else if response == "%" {
-//    let ans = num1 % UInt.init(readLine(strippingNewline: true)!)!
-//    print("Result: \(ans)")
-//}
+    let num1 = UInt.init(response)!
+    response = readLine(strippingNewline: true)!
+    if response == "+" {
+        let ans = num1 + UInt.init(readLine(strippingNewline: true)!)!
+        print("Result: \(ans)")
+    } else if response == "-" {
+        let ans = num1 - UInt.init(readLine(strippingNewline: true)!)!
+        print("Result: \(ans)")
+    } else if response == "*" {
+        let ans = num1 * UInt.init(readLine(strippingNewline: true)!)!
+        print("Result: \(ans)")
+    } else if response == "/" {
+        let ans = num1 / UInt.init(readLine(strippingNewline: true)!)!
+        print("Result: \(ans)")
+    } else if response == "%" {
+        let ans = num1 % UInt.init(readLine(strippingNewline: true)!)!
+        print("Result: \(ans)")
+    }
 }
 
 //func factorial(number: Int) -> Int {
@@ -44,3 +53,11 @@ if response.contains("fact") {
 //        return Int(number * factorial(number - 1))
 //    }
 //}
+
+func avg(set: [Int]) -> Int{
+    var sum = 0;
+    for number in set {
+        sum += number;
+    }
+    return sum / (set.count - 1)
+}
