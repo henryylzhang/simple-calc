@@ -14,16 +14,21 @@ class calc {
         var response = readLine(strippingNewline: true)!
         if response.contains("fact") {
             let set: [String] = response.characters.split{$0 == " "}.map(String.init)
-            factorial(set[0]: Int)
+            var result = factorial(number: Int(set[0])!)
+            print(result)
         } else if response.contains("avg") {
             let stringSet: [String] = response.characters.split{$0 == " "}.map(String.init)
             var set = [Int]()
-            for element in set {
+            for element in stringSet {
+//                if let convertedElement = Int(element) {
+//                   set.append(convertedElement)
+//                }
+                let result = Int(element)
                 if Int(element) != nil {
-                   set.append(Int(element))
+                    set.append(result!)
                 }
             }
-            print(avg(set: [Int]))
+            print(avg(set: set))
         } else if response.contains("count") {
             let set: [String] = response.characters.split{$0 == " "}.map(String.init)
             let count = set.count - 1
@@ -54,7 +59,7 @@ class calc {
         if number <= 1 {
             return 1;
         } else {
-            return number * factorial((number: Int - 1))
+            return number * factorial(number: (number - 1))
         }
     }
 
@@ -66,5 +71,3 @@ class calc {
         return sum / (set.count - 1)
     }
 }
-
-calc.run()
