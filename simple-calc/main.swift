@@ -21,7 +21,7 @@ func avg(set: [Int]) -> Int {
     for number in set {
         sum += number;
     }
-    return sum / (set.count - 1)
+    return sum / (set.count)
 }
 
 //class calc {
