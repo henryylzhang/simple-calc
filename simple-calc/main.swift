@@ -8,13 +8,29 @@
 
 import Foundation
 
-class calc {
-    func run() {
+func factorial(number: Int) -> Int {
+    if number <= 1 {
+        return 1;
+    } else {
+        return number * factorial(number: (number - 1))
+    }
+}
+
+func avg(set: [Int]) -> Int {
+    var sum = 0;
+    for number in set {
+        sum += number;
+    }
+    return sum / (set.count - 1)
+}
+
+//class calc {
+//    func main(arg) {
         print("Enter an expression separated by returns: \n")
         var response = readLine(strippingNewline: true)!
         if response.contains("fact") {
             let set: [String] = response.characters.split{$0 == " "}.map(String.init)
-            var result = factorial(number: Int(set[0])!)
+            let result = factorial(number: Int(set[0])!)
             print(result)
         } else if response.contains("avg") {
             let stringSet: [String] = response.characters.split{$0 == " "}.map(String.init)
@@ -53,21 +69,5 @@ class calc {
                 print("Result: \(ans)")
             } 
         }
-    }
-
-    func factorial(number: Int) -> Int {
-        if number <= 1 {
-            return 1;
-        } else {
-            return number * factorial(number: (number - 1))
-        }
-    }
-
-    func avg(set: [Int]) -> Int {
-        var sum = 0;
-        for number in set {
-            sum += number;
-        }
-        return sum / (set.count - 1)
-    }
-}
+//    }
+//}
